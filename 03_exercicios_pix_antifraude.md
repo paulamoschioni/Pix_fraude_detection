@@ -23,9 +23,7 @@ Liste as contas com **score de risco 80 ou superior** que possuem titular atual.
 
 > Resultado esperado: **41 linhas**
 
-```sql
 
-```
 
 ## 02. DISTINCT, N:N, múltiplas junções
 
@@ -33,9 +31,7 @@ Relacione, sem repetições, os pares **(sigla do estado onde o cliente mora, se
 
 > Resultado esperado: **120 linhas**
 
-```sql
 
-```
 
 ## 03. LEFT JOIN e contagens condicionais
 
@@ -43,9 +39,7 @@ Liste **TODOS** os clientes, inclusive os que não possuem conta. Exiba o nome, 
 
 > Resultado esperado: **400 linhas**
 
-```sql
 
-```
 
 ## 04. INNER JOIN e intervalo de datas
 
@@ -53,9 +47,7 @@ Exiba todas as **aberturas de conta realizadas em 2025**: o cliente que **abriu*
 
 > Resultado esperado: **1200 linhas**
 
-```sql
 
-```
 
 ## 05. GROUP BY, HAVING, COUNT DISTINCT
 
@@ -63,9 +55,7 @@ Identifique os clientes que possuem atualmente contas em **pelo menos 3 institui
 
 > Resultado esperado: **98 linhas**
 
-```sql
 
-```
 
 ## 06. HAVING, contagem condicional e porcentagem
 
@@ -73,9 +63,7 @@ Para cada investigação com **pelo menos 20 contestações CONCLUÍDAS**, apres
 
 > Resultado esperado: **11 linhas**
 
-```sql
 
-```
 
 ## 07. Subconsulta correlacionada
 
@@ -83,9 +71,7 @@ Mostre as contas cujo score de risco **supera a média de score das contas da ME
 
 > Resultado esperado: **822 linhas**
 
-```sql
 
-```
 
 ## 08. EXISTS e NOT EXISTS
 
@@ -93,9 +79,7 @@ Encontre os clientes que possuem **pelo menos uma conta**, mas que **nunca foram
 
 > Resultado esperado: **109 linhas**
 
-```sql
 
-```
 
 ## 09. Subconsulta com ALL
 
@@ -103,9 +87,7 @@ Liste os tipos de golpe com **severidade estritamente superior à de TODOS os ou
 
 > Resultado esperado: **1 linha**
 
-```sql
 
-```
 
 ## 10. Autorrelacionamento (self join)
 
@@ -113,9 +95,7 @@ Liste as **incorporações** cadastradas no banco, mostrando o nome da institui�
 
 > Resultado esperado: **18 linhas**
 
-```sql
 
-```
 
 ## 11. Taxa de devolução por vítima
 
@@ -123,9 +103,7 @@ Liste as vítimas com **no mínimo 10 contestações CONCLUÍDAS** e com **taxa 
 
 > Resultado esperado: **18 linhas**
 
-```sql
 
-```
 
 ## 12. NOT EXISTS (antijunção)
 
@@ -133,9 +111,7 @@ Localize as instituições que possuem **pelo menos uma conta**, mas cujas conta
 
 > Resultado esperado: **7 linhas**
 
-```sql
 
-```
 
 ## 13. Subconsulta independente: média geral
 
@@ -143,9 +119,7 @@ Liste as transações **CONCLUÍDAS em outubro de 2026** cujo valor é superior 
 
 > Resultado esperado: **309 linhas**
 
-```sql
 
-```
 
 ## 14. Subconsulta independente com IN
 
@@ -153,9 +127,7 @@ Liste, sem repetições, os clientes que **abriram pelo menos uma conta em Minas
 
 > Resultado esperado: **90 linhas**
 
-```sql
 
-```
 
 ## 15. Divisão relacional com UM único NOT EXISTS ⭐
 
@@ -170,9 +142,7 @@ Reescreva "o cliente cobre **todos** os serviços de SP" como uma frase com "**n
 
 </details>
 
-```sql
 
-```
 
 ### 15-B. Variação: contas envolvidas em todos os golpes de uma categoria
 
@@ -180,9 +150,7 @@ Encontre as contas que já foram identificadas em **TODOS os tipos de golpe da c
 
 > Resultado esperado: **3 linhas**
 
-```sql
 
-```
 
 ### 15-C. Variação: investigados em todas as operações de um órgão
 
@@ -190,9 +158,7 @@ Encontre os clientes que foram investigados em **TODAS as investigações conduz
 
 > Resultado esperado: **1 linha**
 
-```sql
 
-```
 
 ### 15-D. Variação: o "todos" muda para cada cliente
 
@@ -202,9 +168,7 @@ Atenção: a coluna `transacao_pix.id_dispositivo` pode ser nula.
 
 > Resultado esperado: **70 linhas**
 
-```sql
 
-```
 
 ## 16. Autorrelacionamento e cadeias de incorporação
 
@@ -212,9 +176,7 @@ A partir da instituição **Órbita Digital**, liste as instituições que a abs
 
 > Resultado esperado: **2 linhas**
 
-```sql
 
-```
 
 ## 17. Subconsulta independente com MAX
 
@@ -222,9 +184,7 @@ Localize os titulares que possuem atualmente pelo menos uma conta com o **MAIOR 
 
 > Resultado esperado: **29 linhas**
 
-```sql
 
-```
 
 ## 18. Tabela derivada, GROUP BY e HAVING
 
@@ -232,9 +192,7 @@ Apresente os estados em que foram registradas **pelo menos 150 aberturas de cont
 
 > Resultado esperado: **6 linhas**
 
-```sql
 
-```
 
 ## 19. ROLLUP, GROUPING e agregação hierárquica
 
@@ -242,9 +200,7 @@ Produza um relatório da **quantidade de contas com titular** por **estado do TI
 
 > Resultado esperado: **51 linhas**
 
-```sql
 
-```
 
 ## 20. Subconsulta independente e HAVING
 
@@ -252,6 +208,4 @@ Identifique os clientes que possuem atualmente **mais contas do que a MÉDIA de 
 
 > Resultado esperado: **261 linhas**
 
-```sql
 
-```
