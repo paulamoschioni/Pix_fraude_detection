@@ -174,3 +174,57 @@ HAVING COUNT(*) >= 10
 
 
 -- CONSULTA 12: 
+SET search_path TO pix_antifraude;
+
+SELECT i.nome AS instituicao
+FROM instituicao i
+WHERE EXISTS (SELECT *                                 
+              FROM conta c
+              WHERE c.id_instituicao = i.id_instituicao)        
+  AND NOT EXISTS (SELECT *                            
+                  FROM transacao_pix t
+                  JOIN conta c2 ON c2.id_conta = t.id_conta_origem     
+                  WHERE c2.id_instituicao = i.id_instituicao)          
+  AND NOT EXISTS (SELECT *                            
+                  FROM transacao_pix t2
+                  JOIN conta c3 ON c3.id_conta = t2.id_conta_destino    
+                  WHERE c3.id_instituicao = i.id_instituicao);
+
+
+
+-- CONSULTA 13:
+SET search_path TO pix_antifraude;
+
+SELECT  t.id_transacao AS identificador,
+        t.valor,
+        t.data_hora AS data,
+        ROUND((SELECT AVG(t3.valor)                    
+               FROM transacao_pix t3
+               WHERE t3.status = 'CONCLUIDA'), 2) AS media
+
+FROM transacao_pix t
+WHERE t.status = 'CONCLUIDA'
+  AND t.data_hora >= '2026-10-01'                      
+  AND t.data_hora <  '2026-11-01'
+  AND t.valor > (SELECT AVG(t2.valor)
+                 FROM transacao_pix t2
+                 WHERE t2.status = 'CONCLUIDA')        
+ORDER BY t.valor DESC;
+
+
+-- CONSULTA 14
+SET search_path TO pix_antifraude;
+
+SELECT DISTINCT c.id_cliente AS identificador,
+                c.nome
+
+FROM cliente c
+WHERE c.id_cliente IN (SELECT a.id_cliente              -- lista de quem abriu conta em MG
+                       FROM abertura_conta a
+                       JOIN estado e ON e.id_estado = a.id_estado
+                       WHERE e.sigla = 'MG')
+ORDER BY c.id_cliente;
+
+
+
+-- CONSULTA 15A
